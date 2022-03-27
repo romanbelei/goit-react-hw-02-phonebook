@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ContactList.module.css';
 
-function ContactList({ state }) {
+function ContactList({ state, onRemoveContact }) {
   return (
-    <ul>
+    <ul className={styles.contactList}>
       {state.contacts
         .filter(e => e.name.toLowerCase().includes(state.filter.toLowerCase()))
         .map(contact => {
           return (
-            <li key={contact.id}>
+            <li className={styles.itemList} key={contact.id}>
               {contact.name}: {contact.number}
+              <button
+                className={styles.buttonDelete}
+                key={contact.id}
+                name={contact.name}
+                // className={styles.btn}
+                type="button"
+                onClick={() => onRemoveContact(contact.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}

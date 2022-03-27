@@ -36,7 +36,7 @@ export default class App extends Component {
       <>
         <h1>Phonebook</h1>
         <ContactForm onAddContact={this.addContact} />
-        <h2>Contacts</h2>
+        <h2>Contactss</h2>
         <Filter value={this.state.filter} onFilter={this.handleChange} />
         <ContactList state={this.state} />
       </>
